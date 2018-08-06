@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchUsers, filterUsers } from '../actions/users';
+import { fetchUsers, filterUsers, addToGroup } from '../actions/users';
 
 export class Users extends React.Component {
 
@@ -10,18 +10,13 @@ export class Users extends React.Component {
   
   render() {
 
-    let userList = this.props.users.map((user, i) => <li key={i}>{user.username} - {user.games}</li>);
-    // let userList = this.props.users;
-
-    // if (this.props.users === Array) {
-    //   userList = this.props.users.map((user, i) => <li key={i}>{user.username} - {user.games}</li>);
-    // }
-    // if (typeof this.props.users === 'object') {
-    //   userList = <li>{this.props.users.username} - {this.props.users.games}</li>;
-    // } 
+    let userList = this.props.users.map((user, i) => 
+      <li key={i}>{user.username} - {user.games} - <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>add to group!</div></li>
+    );
 
     return (
     <div>
+      <h1>Find Players!</h1>
       <form onSubmit={(e) => {
         e.preventDefault();
         console.log(this.input.value);

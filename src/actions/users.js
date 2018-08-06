@@ -62,4 +62,66 @@ export const filterUsers = game => dispatch => {
   .catch(err =>
     dispatch(searchGamesError(err))
   );
+};
+
+export const ADD_TO_GROUP_REQUEST = 'ADD_TO_GROUP_REQUEST';
+export const addToGroupRequest = () => ({
+  type: ADD_TO_GROUP_REQUEST
+})
+
+export const ADD_TO_GROUP_SUCCESS = 'ADD_TO_GROUP_SUCCESS';
+export const addToGroupSuccess = (id) => ({
+  type: ADD_TO_GROUP_SUCCESS,
+  id
+})
+
+export const ADD_TO_GROUP_ERROR = 'ADD_TO_GROUP_ERROR';
+export const addToGroupError = error => ({
+  type: ADD_TO_GROUP_ERROR,
+  error
+})
+
+export const addToGroup = id => dispatch => {
+  dispatch(addToGroupRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}`)
+  .then(res => {
+    return res.json()
+  })
+  .then(res =>
+    dispatch(addToGroupSuccess(id))
+  )
+  .catch(err => {
+    dispatch(addToGroupError(err))
+  });
+};
+
+export const GET_MY_GROUP_REQUEST = 'GET_MY_GROUP_REQUEST';
+export const getMyGroupRequest = () => ({
+  type: GET_MY_GROUP_REQUEST
+});
+
+export const GET_MY_GROUP_SUCCESS = 'GET_MY_GROUP_SUCCESS';
+export const getMySuccess = users => ({
+  type: GET_MY_GROUP_SUCCESS,
+  users
+});
+
+export const GET_MY_GROUP_ERROR = 'GET_MY_GROUP_ERROR';
+export const getMyGroupError = error => ({
+  type: GET_MY_GROUP_ERROR,
+  error
+});
+
+export const getMyGroup = () => dispatch => {
+  dispatch(fetchUsersRequest());
+  return fetch(`${API_BASE_URL}/api/users`)
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(fetchUsersSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(fetchUsersError(err))
+  );
 }

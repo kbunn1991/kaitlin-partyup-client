@@ -1,19 +1,20 @@
 import React from 'react';
 
-export default function Login (props) {
+export default function Register (props) {
   return (
     <div>
       <h1>Welcome to Party Up!</h1>
-      <h3>Log in</h3>
+      <h3>Please register</h3>
+
       <form>
         <label htmlFor="username">Username</label>
         <input type="text" name="username"></input>
         <label htmlFor="password">Password</label>
         <input type="text" name="password"></input>
-        <button type="submit">Log In</button>
+        <button type="submit">Register</button>
       </form>
-      <div>Don't have an account? Please <a href="#home">register</a>.</div>
 
+      <div>Already have an account? Please <a href="#home">log in</a></div>
     </div>
   )
 }
