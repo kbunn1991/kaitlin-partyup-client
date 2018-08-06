@@ -1,5 +1,5 @@
 import './index.css';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from '../../../../../Library/Caches/typescript/2.9/node_modules/redux';
 import thunk from 'redux-thunk';
 
 import userReducer from './reducers/user';

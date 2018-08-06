@@ -32,3 +32,34 @@ export const fetchUsers = () => dispatch => {
     dispatch(fetchUsersError(err))
   );
 }
+
+export const SEARCH_GAMES_REQUEST= 'SEARCH_GAMES_REQUEST';
+export const searchGamesRequest = () => ({
+  type: SEARCH_GAMES_REQUEST
+});
+
+export const SEARCH_GAMES_SUCCESS = 'SEARCH_GAMES_SUCCESS';
+export const searchGamesSuccess = users => ({
+  type: SEARCH_GAMES_SUCCESS,
+  users
+});
+
+export const SEARCH_GAMES_ERROR = 'SEARCH_GAMES_ERROR';
+export const searchGamesError = error => ({
+  type: SEARCH_GAMES_ERROR,
+  error
+});
+
+export const filterUsers = game => dispatch => {
+  dispatch(searchGamesRequest(game));
+  return fetch(`${API_BASE_URL}/api/users/?searchTerm=${game}`)
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(searchGamesSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(searchGamesError(err))
+  );
+}
