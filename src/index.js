@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Users from './components/user-list';
-import Login from './components/login-page';
-import Register from './components/registration-page';
-import MyGroup from './components/my-group';
+import App from './components/app'
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import store from './store';
+import {BrowserRouter as Router} from 'react-router-dom';
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <div> 
-      <Register />
-      <Login />
-      <Users />
-      <MyGroup />
-    </div>
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
+
+// <div> 
+//       <Register />
+//       <Login />
+//       <Users />
+//       <MyGroup />
+//     </div>

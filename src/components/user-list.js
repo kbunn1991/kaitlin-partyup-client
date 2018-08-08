@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import requiresLogin from './requires-login'
 import { fetchUsers, filterUsers, addToGroup } from '../actions/users';
 
 export class Users extends React.Component {
@@ -35,7 +36,8 @@ export class Users extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users
+  users: state.userReduce.users
 })
 
+// export default requiresLogin()(connect(mapStateToProps)(Users));
 export default connect(mapStateToProps)(Users);

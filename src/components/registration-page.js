@@ -14,7 +14,7 @@ export default function Register (props) {
         <button type="submit">Register</button>
       </form>
 
-      <div>Already have an account? Please <a href="#home">log in</a></div>
+      <div>Already have an account? Please <a href="/login">log in</a></div>
     </div>
   )
 }

@@ -1,22 +1,41 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getMyGroup, addToGroup} from '../actions/users';
+// import { addToGroup } from '../actions/users';
+import { makeGroup, fetchGroups } from '../actions/groups';
 
 export class MyGroup extends React.Component {
   
   componentDidMount() {
-    this.props.dispatch(getMyGroup(this.props.users));  
+    this.props.dispatch(fetchGroups(this.props.groups));  
   };
 
   render() {
 
-    let groupList = this.props.users.map((user, i) => 
-      <li key={i}>{user.username} - {user.games} - <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>remove from group!</div></li>
+
+    let groupList = this.props.groups.map((group, i) => 
+      <li key={i}>{group.groupName} - <a href={`/groups/${group._id}`}>View Group</a></li>
     );
+
+    console.log(this.props.groups)
 
     return (
       <div>
-        <h1>My Current Group</h1>
+        <h1> Make a Group </h1>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          console.log(this.input.value);
+          this.props.dispatch(makeGroup(this.input.value));
+          console.log(this.props.groups);
+        }}>
+          <label htmlFor="chooseGame">Game:</label>
+          <input type="dropdown" />
+          <label htmlFor="groupName">Group Name:</label>
+          <input type="text" ref={element => this.input = element} />
+          <button type="submit">Submit</button>
+        </form>
+        <h1>My Created Groups</h1>
+        <ul>{groupList}</ul>
+        <h1>My Joined Groups</h1>
         <ul>{groupList}</ul>
       </div>
     )
@@ -24,7 +43,7 @@ export class MyGroup extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users
+  groups: state.groupReduce.groups
 })
 
 export default connect(mapStateToProps)(MyGroup);
