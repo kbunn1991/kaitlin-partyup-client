@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchGroups, filterGroups, joinGroup } from '../actions/groups';
-import { getMyGroupError } from '../actions/users';
 
 export class SearchGroups extends React.Component {
 

@@ -1,20 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 
-export default function Register (props) {
+import RegistrationForm from './registration-form';
+
+export function Register(props) {
+  // Redirect to /findPlayers if logged in (automatically happens if reg is successful)
+  if (props.loggedIn) {
+    return <Redirect to='/findPlayers' />
+  }
   return (
-    <div>
-      <h1>Welcome to Party Up!</h1>
-      <h3>Please register</h3>
-
-      <form>
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username"></input>
-        <label htmlFor="password">Password</label>
-        <input type="text" name="password"></input>
-        <button type="submit">Register</button>
-      </form>
-
-      <div>Already have an account? Please <a href="/login">log in</a></div>
+    <div className="registerPage">
+      <h2>Register for Party Up!</h2>
+      <RegistrationForm />
+      <Link to="/">Login</Link>
     </div>
   )
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(Register);

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Users from './user-list';
 import LoginForm from './login-page';
 import LandingPage from './landing-page';
-import Register from './registration-page';
+import {Register} from './registration-page';
 import MyGroup from './my-group';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';

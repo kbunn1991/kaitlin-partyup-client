@@ -1,44 +1,5 @@
-// import React from 'react';
-// import {Field, reduxForm, focus} from 'redux-form';
-// import {login} from '../actions/auth';
-// import {required, nonEmpty} from '../validators';
-
-// export class  Login extends React.Component {
-
-//   onSubmit(values) {
-//     return this.props.dispatch(login(values.username, values.password));
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h1>Welcome to Party Up!</h1>
-//         <h3>Log in</h3>
-//         <form
-//           onSubmit={this.props.handleSubmit(values =>
-//               this.onSubmit(values)
-//           )}
-//           >
-//           <label htmlFor="username">Username</label>
-//           <input type="text" name="username"></input>
-//           <label htmlFor="password">Password</label>
-//           <input type="text" name="password"></input>
-//           <button type="submit">Log In</button>
-//         </form>
-//         <div>Don't have an account? Please <a href="/register">register</a>.</div>
-
-//       </div>
-//     )
-//   }
-// }
-
-// export default reduxForm({
-//     form: 'login',
-//     onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-// })(Login);
-
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {reduxForm, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 
