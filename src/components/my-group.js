@@ -1,19 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // import { addToGroup } from '../actions/users';
-import { makeGroup, fetchGroups } from '../actions/groups';
+import { makeGroup, getMyGroups, leaveGroup } from '../actions/groups';
 
 export class MyGroup extends React.Component {
   
   componentDidMount() {
-    this.props.dispatch(fetchGroups(this.props.groups));  
+    this.props.dispatch(getMyGroups(this.props.groups));  
   };
 
   render() {
 
 
     let groupList = this.props.groups.map((group, i) => 
-      <li key={i}>{group.groupName} - <a href={`/groups/${group._id}`}>View Group</a></li>
+      <li key={i}>{group.groupName} - <a href={`/groups/${group._id}`}>View Group</a> - <a href="#" onClick={() => this.props.dispatch(leaveGroup(group._id))}>Leave this Group</a></li>
     );
 
     console.log(this.props.groups)
@@ -42,8 +42,11 @@ export class MyGroup extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  groups: state.groupReduce.groups
-})
+const mapStateToProps = state => {
+  return {
+      protectedData: state.protectedData.data,
+      groups: state.groupReduce.groups
+  };
+};
 
 export default connect(mapStateToProps)(MyGroup);

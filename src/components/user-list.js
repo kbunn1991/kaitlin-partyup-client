@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from './requires-login'
+import requiresLogin from './requires-login';
 import { fetchUsers, filterUsers, addToGroup } from '../actions/users';
 
 export class Users extends React.Component {
@@ -12,7 +12,7 @@ export class Users extends React.Component {
   render() {
 
     let userList = this.props.users.map((user, i) => 
-      <li key={i}>{user.username} - {user.games} - <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>add to group!</div></li>
+      <li key={i}>{user.username} - {user.games} - <a href={`/users/${user._id}`}>View User</a> - <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>add to group!</div></li>
     );
 
     return (
@@ -35,9 +35,13 @@ export class Users extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  users: state.userReduce.users
-})
+const mapStateToProps = state => {
+  return {
+      username: state.auth.currentUser.username,
+      protectedData: state.protectedData.data,
+      users: state.userReduce.users
+  };
+};
 
-// export default requiresLogin()(connect(mapStateToProps)(Users));
-export default connect(mapStateToProps)(Users);
+export default requiresLogin()(connect(mapStateToProps)(Users));
+// export default connect(mapStateToProps)(Users);

@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchGroups, filterGroups } from '../actions/groups';
+import requiresLogin from './requires-login';
+import { fetchGroups, filterGroups, joinGroup } from '../actions/groups';
+import { getMyGroupError } from '../actions/users';
 
 export class SearchGroups extends React.Component {
 
@@ -11,7 +13,7 @@ export class SearchGroups extends React.Component {
   render() {
 
     let groupList = this.props.groups.map((group, i) => 
-      <li key={i}>{group.groupName} - <a href="#" onClick={() => console.log('clicked!')}>Join this group!</a></li>
+      <li key={i}>{group.groupName} - <a href="#" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</a></li>
     );
     // <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>join group!</div>
 
@@ -35,8 +37,14 @@ export class SearchGroups extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  groups: state.groupReduce.groups
-})
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName} ${currentUser.lastName}`,
+      protectedData: state.protectedData.data,
+      groups: state.groupReduce.groups
+  };
+};
 
-export default connect(mapStateToProps)(SearchGroups);
+export default requiresLogin()(connect(mapStateToProps)(SearchGroups));

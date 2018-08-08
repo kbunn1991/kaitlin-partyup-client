@@ -2,11 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Users from './user-list';
 import LoginForm from './login-page';
-// import LandingPage from './landing-page';
+import LandingPage from './landing-page';
 import Register from './registration-page';
 import MyGroup from './my-group';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
+import UserProfile from './user-profile';
 import {Route, withRouter, Link} from 'react-router-dom';
 
 import {refreshAuthToken} from '../actions/auth';
@@ -52,10 +53,11 @@ export class App extends React.Component {
                     <div><a href="/myGroup">my groups</a></div>
                     <div><a href="/editProfile">edit my profile</a></div>
                     <div><a href="/searchGroups">search groups</a></div>
-                    {/* <Route exact path="/" component={LandingPage} /> */}
+                    <Route exact path="/" component={LandingPage} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={LoginForm} />
                     <Route exact path="/findPlayers" component={Users} />
+                    <Route exact path="/users/:id" component={UserProfile} />
                     <Route exact path="/myGroup" component={MyGroup} />
                     <Route exact path="/editProfile" component={EditProfile} />
                     <Route exact path="/searchGroups" component={SearchGroups} />

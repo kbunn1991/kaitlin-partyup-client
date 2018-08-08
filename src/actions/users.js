@@ -45,9 +45,16 @@ export const fetchUsersError = error => ({
   error
 })
 
-export const fetchUsers = () => dispatch => {
+export const fetchUsers = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  console.log(authToken);
   dispatch(fetchUsersRequest());
-  return fetch(`${API_BASE_URL}/api/users`)
+  return fetch(`${API_BASE_URL}/api/users`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => {
     return res.json()
   })
@@ -56,6 +63,43 @@ export const fetchUsers = () => dispatch => {
   )
   .catch(err =>
     dispatch(fetchUsersError(err))
+  );
+}
+
+export const FETCH_ONE_USER_REQUEST = 'FETCH_ONE_USER_REQUEST';
+export const fetchOneUserRequest = () => ({
+  type: FETCH_ONE_USER_REQUEST
+})
+
+export const FETCH_ONE_USER_SUCCESS = 'FETCH_ONE_USER_SUCCESS';
+export const fetchOneUserSuccess = user => ({
+  type: FETCH_ONE_USER_SUCCESS,
+  user
+})
+
+export const FETCH_ONE_USER_ERROR = 'FETCH_ONE_USER_ERROR';
+export const fetchOneUserError = error => ({
+  type: FETCH_ONE_USER_ERROR,
+  error
+})
+
+export const fetchOneUser = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(fetchOneUserRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(fetchOneUserSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(fetchOneUserError(err))
   );
 }
 
@@ -76,9 +120,15 @@ export const searchGamesError = error => ({
   error
 });
 
-export const filterUsers = game => dispatch => {
+export const filterUsers = game => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(searchGamesRequest(game));
-  return fetch(`${API_BASE_URL}/api/users/?searchTerm=${game}`)
+  return fetch(`${API_BASE_URL}/api/users/?searchTerm=${game}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => {
     return res.json()
   })
@@ -121,22 +171,22 @@ export const addToGroup = id => dispatch => {
   });
 };
 
-export const GET_MY_GROUP_REQUEST = 'GET_MY_GROUP_REQUEST';
-export const getMyGroupRequest = () => ({
-  type: GET_MY_GROUP_REQUEST
-});
+// export const GET_MY_GROUP_REQUEST = 'GET_MY_GROUP_REQUEST';
+// export const getMyGroupRequest = () => ({
+//   type: GET_MY_GROUP_REQUEST
+// });
 
-export const GET_MY_GROUP_SUCCESS = 'GET_MY_GROUP_SUCCESS';
-export const getMySuccess = users => ({
-  type: GET_MY_GROUP_SUCCESS,
-  users
-});
+// export const GET_MY_GROUP_SUCCESS = 'GET_MY_GROUP_SUCCESS';
+// export const getMySuccess = users => ({
+//   type: GET_MY_GROUP_SUCCESS,
+//   users
+// });
 
-export const GET_MY_GROUP_ERROR = 'GET_MY_GROUP_ERROR';
-export const getMyGroupError = error => ({
-  type: GET_MY_GROUP_ERROR,
-  error
-});
+// export const GET_MY_GROUP_ERROR = 'GET_MY_GROUP_ERROR';
+// export const getMyGroupError = error => ({
+//   type: GET_MY_GROUP_ERROR,
+//   error
+// });
 
 export const getMyGroup = () => dispatch => {
   dispatch(fetchUsersRequest());
