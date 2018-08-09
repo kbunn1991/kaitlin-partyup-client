@@ -3,6 +3,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
+import { withRouter } from 'react-router-dom';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 const passwordLength = length({min: 5, max: 72});
 const matchesPassword = matches('password');
@@ -14,7 +15,11 @@ export class RegistrationForm extends React.Component {
     const user = {username, password};
     return this.props
       .dispatch(registerUser(user))
-      .then(() => this.props.dispatch(login(username, password)));
+      .then(() => this.props.dispatch(login(username, password)))
+      .then(() => {
+        this.props.history.push('/findPlayers');
+        console.log('redirect');
+      });
   }
   
   render() {
@@ -54,8 +59,8 @@ export class RegistrationForm extends React.Component {
   }
 }
 
-export default reduxForm({
+export default withRouter(reduxForm({
   form: 'registration',
   onSubmitFail: (errors, dispatch) =>
   dispatch(focus('registration', Object.keys(errors)[0]))
-})(RegistrationForm);
+})(RegistrationForm));

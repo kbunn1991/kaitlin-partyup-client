@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import { addToGroup } from '../actions/users';
 import { makeGroup, getMyGroups, leaveGroup } from '../actions/groups';
+import requiresLogin from './requires-login';
 
 export class MyGroup extends React.Component {
   
@@ -45,8 +45,7 @@ export class MyGroup extends React.Component {
 const mapStateToProps = state => {
   return {
       protectedData: state.protectedData.data,
-      groups: state.groupReduce.groups
-  };
+      groups: state.groupReduce.groups  };
 };
 
-export default connect(mapStateToProps)(MyGroup);
+export default requiresLogin()(connect(mapStateToProps)(MyGroup));

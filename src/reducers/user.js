@@ -1,4 +1,4 @@
-import {  FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR, SEARCH_GAMES_REQUEST, SEARCH_GAMES_SUCCESS, SEARCH_GAMES_ERROR, ADD_TO_GROUP_REQUEST, ADD_TO_GROUP_SUCCESS, ADD_TO_GROUP_ERROR, FETCH_ONE_USER_REQUEST, FETCH_ONE_USER_SUCCESS, FETCH_ONE_USER_ERROR } from '../actions/users'
+import {  FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR, SEARCH_GAMES_REQUEST, SEARCH_GAMES_SUCCESS, SEARCH_GAMES_ERROR, ADD_TO_GROUP_REQUEST, ADD_TO_GROUP_SUCCESS, ADD_TO_GROUP_ERROR, FETCH_ONE_USER_REQUEST, FETCH_ONE_USER_SUCCESS, FETCH_ONE_USER_ERROR, EDIT_MY_PROFILE_REQUEST, EDIT_MY_PROFILE_SUCCESS, EDIT_MY_PROFILE_ERROR } from '../actions/users'
 
 const initialState = {
   users: [],
@@ -74,6 +74,21 @@ export default function userReducer(state = initialState, action) {
     return Object.assign({}, state, {
       error: action.error
     })
-  } 
+  } else if (action.type === EDIT_MY_PROFILE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true
+    })
+  } else if (action.type === EDIT_MY_PROFILE_SUCCESS) {
+    return Object.assign({}, state, {
+      currentUser: action.user,
+      loading: false,
+      error: null
+    })
+  } else if (action.type === EDIT_MY_PROFILE_ERROR) {
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    })
+  }
   return state
 }

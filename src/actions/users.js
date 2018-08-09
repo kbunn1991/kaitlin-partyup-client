@@ -1,6 +1,7 @@
 // ASYNC ACTION
 
 // import {SubmissionError} from 'redux-form';
+import { authSuccess } from './auth';
 
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
@@ -14,6 +15,7 @@ export const registerUser = user => dispatch => {
       body: JSON.stringify(user)
   })
       .then(res => normalizeResponseErrors(res))
+      .then(() => dispatch(authSuccess()))
       .then(res => res.json())
       .catch(err => {
           const {reason, message, location} = err;
@@ -171,33 +173,45 @@ export const addToGroup = id => dispatch => {
   });
 };
 
-// export const GET_MY_GROUP_REQUEST = 'GET_MY_GROUP_REQUEST';
-// export const getMyGroupRequest = () => ({
-//   type: GET_MY_GROUP_REQUEST
-// });
+export const EDIT_MY_PROFILE_REQUEST = 'EDIT_MY_PROFILE_REQUEST';
+export const editMyProfileRequest = () => ({
+  type: EDIT_MY_PROFILE_REQUEST
+});
 
-// export const GET_MY_GROUP_SUCCESS = 'GET_MY_GROUP_SUCCESS';
-// export const getMySuccess = users => ({
-//   type: GET_MY_GROUP_SUCCESS,
-//   users
-// });
+export const EDIT_MY_PROFILE_SUCCESS = 'EDIT_MY_PROFILE_SUCCESS';
+export const editMyProfileSuccess = currentUser => ({
+  type: EDIT_MY_PROFILE_SUCCESS,
+  currentUser
+});
 
-// export const GET_MY_GROUP_ERROR = 'GET_MY_GROUP_ERROR';
-// export const getMyGroupError = error => ({
-//   type: GET_MY_GROUP_ERROR,
-//   error
-// });
+export const EDIT_MY_PROFILE_ERROR = 'EDIT_MY_PROFILE_ERROR';
+export const editMyProfileError = error => ({
+  type: EDIT_MY_PROFILE_ERROR,
+  error
+});
 
-export const getMyGroup = () => dispatch => {
-  dispatch(fetchUsersRequest());
-  return fetch(`${API_BASE_URL}/api/users`)
+export const editMyProfile = (id, profileImage, myGames, myTags) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(editMyProfileRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      profileImage,
+      games: myGames.split(','),
+      tags: myTags.split(',')
+    })
+  })
   .then(res => {
     return res.json()
   })
   .then(res => 
-    dispatch(fetchUsersSuccess(res)) 
+    dispatch(editMyProfileSuccess(res))
   )
-  .catch(err =>
-    dispatch(fetchUsersError(err))
+  .catch(err => 
+    dispatch(editMyProfileError(err))
   );
 }

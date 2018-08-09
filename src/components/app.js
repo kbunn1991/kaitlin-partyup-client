@@ -5,12 +5,14 @@ import LoginForm from './login-page';
 import LandingPage from './landing-page';
 import {Register} from './registration-page';
 import MyGroup from './my-group';
+import HeaderBar from './header-bar';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
 import UserProfile from './user-profile';
 import {Route, withRouter, Link} from 'react-router-dom';
 
 import {refreshAuthToken} from '../actions/auth';
+import MyProfile from './my-profile';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -46,21 +48,23 @@ export class App extends React.Component {
         return (
             <div className="app">
                   <div>
-                    <h1><Link to="/">Party Up!</Link></h1>
+                  <HeaderBar />
+                    <div><a href={`/users/myProfile/${this.props.userId}`}>My Profile</a></div>
+
                     <div><a href="/register">register</a></div>
-                    <div><a href="/login">login</a></div>
+                    <div><a href="/">login</a></div>
                     <div><a href="/findPlayers">users</a></div>
                     <div><a href="/myGroup">my groups</a></div>
                     <div><a href="/editProfile">edit my profile</a></div>
                     <div><a href="/searchGroups">search groups</a></div>
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={LoginForm} />
                     <Route exact path="/findPlayers" component={Users} />
                     <Route exact path="/users/:id" component={UserProfile} />
                     <Route exact path="/myGroup" component={MyGroup} />
                     <Route exact path="/editProfile" component={EditProfile} />
                     <Route exact path="/searchGroups" component={SearchGroups} />
+                    <Route exact path="/users/myProfile/:id" component={MyProfile} />
                   </div>
             </div>
         );
@@ -69,7 +73,8 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
     hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    userId: state.auth.currentUser ? state.auth.currentUser._id : null
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
