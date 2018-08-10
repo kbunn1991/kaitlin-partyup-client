@@ -7,9 +7,10 @@ export const makeGroupRequest = groupName => ({
 });
 
 export const MAKE_GROUP_SUCCESS = 'MAKE_GROUP_SUCCESS';
-export const makeGroupSuccess = groupName => ({
+export const makeGroupSuccess = (groupName, game) => ({
   type: MAKE_GROUP_SUCCESS,
-  groupName
+  groupName,
+  game
 });
 
 export const MAKE_GROUP_ERROR = 'MAKE_GROUP_ERROR';
@@ -18,9 +19,9 @@ export const makeGroupError = error => ({
   error
 });
 
-export const makeGroup = groupName => (dispatch, getState) => {
+export const makeGroup = (groupName, game, id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  dispatch(makeGroupRequest(groupName));
+  dispatch(makeGroupRequest(id));
   return fetch(`${API_BASE_URL}/api/groups`, {
     method: "POST",
     headers: {
@@ -28,7 +29,10 @@ export const makeGroup = groupName => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      groupName: groupName
+      groupName: groupName,
+      game: game,
+      userId: id,
+      groupType: 'created'
     })
   })
   .then( body => {
@@ -138,8 +142,13 @@ export const joinGroup = id => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/api/groups/${id}/join`, {
     method: 'PUT',
     headers: {
-      Authorization: `Bearer ${authToken}`
-    }
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      groupType: 'joined'
+    })
   })
   .then(res => {
     return res.json()
@@ -224,3 +233,113 @@ export const getMyGroups = () => (dispatch, getState) => {
     dispatch(getMyGroupsError(err))
   );
 };
+
+export const GET_CREATED_GROUPS_REQUEST = 'GET_CREATED_GROUPS_REQUEST';
+export const getCreatedGroupsRequest = () => ({
+  type: GET_CREATED_GROUPS_REQUEST
+})
+
+export const GET_CREATED_GROUPS_SUCCESS = 'GET_CREATED_GROUPS_SUCCESS';
+export const getCreatedGroupsSuccess = groups => ({
+  type: GET_CREATED_GROUPS_SUCCESS,
+  groups
+})
+
+export const GET_CREATED_GROUPS_ERROR = 'GET_CREATED_GROUPS_ERROR';
+export const getCreatedGroupsError = error => ({
+  type: GET_CREATED_GROUPS_ERROR,
+  error
+})
+
+export const getCreatedGroups = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(getCreatedGroupsRequest());
+  return fetch(`${API_BASE_URL}/api/groups/created`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(getCreatedGroupsSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(getCreatedGroupsError(err))
+  );
+};
+
+export const DELETE_GROUP_REQUEST = 'DELETE_GROUP_REQUEST';
+export const deleteGroupRequest = () => ({
+  type: DELETE_GROUP_REQUEST
+})
+
+export const DELETE_GROUP_SUCCESS = 'DELETE_GROUP_REQUEST';
+export const deleteGroupSuccess = () => ({
+  type: DELETE_GROUP_SUCCESS
+})
+
+export const DELETE_GROUP_ERROR = 'DELETE_GROUP_ERROR';
+export const deleteGroupError = error => ({
+  type: DELETE_GROUP_ERROR,
+  error
+})
+
+export const deleteGroup = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(deleteGroupRequest());
+  return fetch(`${API_BASE_URL}/api/groups/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .then(res => {
+    dispatch(deleteGroupSuccess(res))
+  })
+  .catch(err => {
+    dispatch(deleteGroupError(err))
+  });
+};
+
+export const FETCH_ONE_GROUP_REQUEST = 'FETCH_ONE_GROUP_REQUEST';
+export const fetchOneGroupRequest = () => ({
+  type: FETCH_ONE_GROUP_REQUEST
+})
+
+export const FETCH_ONE_GROUP_SUCCESS = 'FETCH_ONE_GROUP_SUCCESS';
+export const fetchOneGroupSuccess = group => ({
+  type: FETCH_ONE_GROUP_SUCCESS,
+  group
+})
+
+export const FETCH_ONE_GROUP_ERROR = 'FETCH_ONE_GROUP_ERROR';
+export const fetchOneGroupError = error => ({
+  type: FETCH_ONE_GROUP_ERROR,
+  error
+})
+
+export const fetchOneGroup = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(fetchOneGroupRequest(id));
+  return fetch(`${API_BASE_URL}/api/groups/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(fetchOneGroupSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(fetchOneGroupError(err))
+  );
+}

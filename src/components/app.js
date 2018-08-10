@@ -5,6 +5,7 @@ import LoginForm from './login-page';
 import LandingPage from './landing-page';
 import {Register} from './registration-page';
 import MyGroup from './my-group';
+import GroupProfile from './group-profile';
 import HeaderBar from './header-bar';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
@@ -62,6 +63,7 @@ export class App extends React.Component {
                     <Route exact path="/findPlayers" component={Users} />
                     <Route exact path="/users/:id" component={UserProfile} />
                     <Route exact path="/myGroup" component={MyGroup} />
+                    <Route exact path="/groups/:id" component={GroupProfile} />
                     <Route exact path="/editProfile" component={EditProfile} />
                     <Route exact path="/searchGroups" component={SearchGroups} />
                     <Route exact path="/users/myProfile/:id" component={MyProfile} />
