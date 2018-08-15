@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Lato');
+
+.findPlayersImage {
+  margin-top: 0px;
+  width: 100vw; 
+  background-size: cover; 
+  /* background-image: url(https://images.unsplash.com/photo-1498721454196-e1fe723c0374?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=235d2d01c6ccc6baee15d0bc84edde9b&auto=format&fit=crop&w=2549&q=80); */
+  /* background-image: url(https://images.unsplash.com/photo-1526510096283-b0b3b6cac327?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a667caa6bc7ef94d69257b52e3baa3e3&auto=format&fit=crop&w=2550&q=80); */
+  height: 100vh; 
+  background-position: center;
+  /* background-color: #777; */
+  /* background-blend-mode: multiply; */
+  background-attachment: fixed;
+}
+
+.textBg {
+  background-image: url(https://images.unsplash.com/photo-1508240155128-3b7b40767aa1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765113db149d05d2a9b69bdca93ef10f&auto=format&fit=crop&w=2532&q=80);
+  background-size: cover; 
+  width: 100vw;
+  height: 30vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+}
+
+.findPlayersText {
+  text-align: center;
+  color: #fff;
+  font-family: 'Josefin Sans';
+  letter-spacing: 6px;
+  font-size: 18px;
+  position: absolute;
+  transform: translate(0,-50%);
+  text-transform: uppercase;
+  top: 17vh;
+  position: absolute;
+  width: 100%;
+  background-size: cover;
+}
+
+.findForm {
+  z-index: 3;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  margin-top: 5vh;
+}
+
+.findForm input {
+  z-index: 3;
+  display: inline-block;
+  width: 76%;
+  margin-right: 10%;
+  margin-left: 10%;
+  border: 1px solid #28231F;
+  padding: 7px;
+  border-radius: 2px;
+  background-color: #28231F;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.findForm label {
+  color: #fff;
+  font-family: 'Josefin Sans';
+}
+
+.findForm button {
+  margin-top: 3%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  background-color: #fff;
+  padding: 4%;
+  border: none;
+  border-bottom: 1px solid #28231F;
+  font-family: 'Josefin Sans'
+}
+
+.userList {
+  position: absolute;
+  top: 43vh;
+  width: 89.5%;
+  max-height: 53vh;
+  overflow: auto;
+}
+
+.userList ul {
+  z-index: 3;
+  list-style: none;
+  padding-top: 0px;
+  margin-top: 0;
+  overflow-y: hidden;
+}
+
+.userList li {
+  /* background-color: #28231F; */
+  background-color: #fff;
+  margin-bottom: 3%;
+  padding: 2%;
+  /* border-bottom: 1px solid #777; */
+  min-height: 50px;
+  /* color: rgba(255,255,255,0.9); */
+  color: #28231F;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.userList li a:link {
+  color: rgba(0,0,0,0.9);
+}
+
+.userImage img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-top: 4%;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+  background-image: url('http://placehold.it/50x50');
+}
+
+.userInfo {
+  left: 54px;
+  position: relative;
+  max-width: 75%;
+  padding: 2%;
+  overflow-y: hidden;
+}
+
+.userName {
+  font-family: 'Josefin Sans';
+  font-size: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0,0,0,0.1)
+}
+
+.userGames {
+  font-family: 'Lato';
+  display: block;
+  font-size:12px;
+  margin-left: 0%;
+}
+
+.userGames ul {
+  list-style: none;
+  margin-left: 0%;
+  padding: 2%;
+  line-height: 90%;
+}
+.userGames li {
+  padding: none;
+  border: none;
+  min-height: 0px;
+  padding: 2px;
+}

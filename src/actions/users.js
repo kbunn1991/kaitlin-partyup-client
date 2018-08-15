@@ -179,9 +179,10 @@ export const editMyProfileRequest = () => ({
 });
 
 export const EDIT_MY_PROFILE_SUCCESS = 'EDIT_MY_PROFILE_SUCCESS';
-export const editMyProfileSuccess = currentUser => ({
+export const editMyProfileSuccess = (currentUser, games) => ({
   type: EDIT_MY_PROFILE_SUCCESS,
-  currentUser
+  currentUser,
+  games
 });
 
 export const EDIT_MY_PROFILE_ERROR = 'EDIT_MY_PROFILE_ERROR';
@@ -213,5 +214,83 @@ export const editMyProfile = (id, profileImage, myGames, myTags) => (dispatch, g
   )
   .catch(err => 
     dispatch(editMyProfileError(err))
+  );
+}
+
+export const DELETE_GAME_REQUEST = 'DELETE_GAME_REQUEST';
+export const deleteGameRequest = () => ({
+  type: DELETE_GAME_REQUEST
+})
+
+export const DELETE_GAME_SUCCESS = 'DELETE_GAME_SUCCESS';
+export const deleteGameSuccess = game => ({
+  type: DELETE_GAME_SUCCESS,
+  game
+})
+
+export const DELETE_GAME_ERROR = 'DELETE_GAME_ERROR';
+export const deleteGameError = error => ({
+  type: DELETE_GAME_ERROR,
+  error
+})
+
+export const deleteGame = (id, gameId) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  console.log(gameId);
+  dispatch(deleteGameRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}/deleteGame`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      gameId
+    })
+  })
+  .then(res =>
+    dispatch(deleteGameSuccess(res))
+  )
+  .then(err =>
+    dispatch(deleteGameError(err))
+  );
+}
+
+export const DELETE_TAG_REQUEST = 'DELETE_TAG_REQUEST';
+export const deleteTagRequest = () => ({
+  type: DELETE_TAG_REQUEST
+})
+
+export const DELETE_TAG_SUCCESS = 'DELETE_TAG_SUCCESS';
+export const deleteTagSuccess = game => ({
+  type: DELETE_TAG_SUCCESS,
+  game
+})
+
+export const DELETE_TAG_ERROR = 'DELETE_TAG_ERROR';
+export const deleteTagError = error => ({
+  type: DELETE_TAG_ERROR,
+  error
+})
+
+export const deleteTag = (id, tagId) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  console.log(tagId);
+  dispatch(deleteTagRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}/deleteTag`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      tagId
+    })
+  })
+  .then(res =>
+    dispatch(deleteTagSuccess(res))
+  )
+  .then(err =>
+    dispatch(deleteTagError(err))
   );
 }

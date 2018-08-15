@@ -1,16 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Users from './user-list';
-import LoginForm from './login-page';
 import LandingPage from './landing-page';
 import {Register} from './registration-page';
 import MyGroup from './my-group';
 import GroupProfile from './group-profile';
-import HeaderBar from './header-bar';
+// import HeaderBar from './header-bar';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
 import UserProfile from './user-profile';
 import {Route, withRouter, Link} from 'react-router-dom';
+import './app.css';
 
 import {refreshAuthToken} from '../actions/auth';
 import MyProfile from './my-profile';
@@ -49,15 +49,15 @@ export class App extends React.Component {
         return (
             <div className="app">
                   <div>
-                  <HeaderBar />
-                    <div><a href={`/users/myProfile/${this.props.userId}`}>My Profile</a></div>
+                  {/* <HeaderBar /> */}
+                    {/* <div><a href={`/users/myProfile/${this.props.userId}`}>My Profile</a></div>
 
                     <div><a href="/register">register</a></div>
                     <div><a href="/">login</a></div>
                     <div><a href="/findPlayers">users</a></div>
                     <div><a href="/myGroup">my groups</a></div>
                     <div><a href="/editProfile">edit my profile</a></div>
-                    <div><a href="/searchGroups">search groups</a></div>
+                    <div><a href="/searchGroups">search groups</a></div> */}
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/findPlayers" component={Users} />

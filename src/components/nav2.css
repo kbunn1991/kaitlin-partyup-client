@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.nav2 {
+  width: 99%;
+  height: auto;
+  background-color: rgba(15, 14, 14, 0.7);
+  padding: .5%;
+  text-align: right;
+  position: absolute;
+  top: 30.2vh;
+  z-index: 5;
+}
+
+.nav2 a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Josefin Sans';
+  font-size: 8px;
+  padding: 3px;
+  background-color: none;
+  background: none;
+  border: none;
+  letter-spacing: 1px;
+  margin-right: 5px;
+}

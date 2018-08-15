@@ -2,6 +2,8 @@ import React from 'react';
 import {reduxForm, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import {Link, Redirect} from 'react-router-dom';
+import './login-page.css';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -19,32 +21,42 @@ export class LoginForm extends React.Component {
         }
         return (
             <div>
-              <h1>Log In</h1>
+              <div className="logBar"><div className="logWords">Please <i>log in</i> to use our features</div></div>
                 <form
                   className="login-form"
                   onSubmit={this.props.handleSubmit(values =>
                       this.onSubmit(values)
                   )}>
                   {error}
-                  <label htmlFor="username">Username</label>
-                  <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      validate={[required, nonEmpty]}
-                      ref='username'
-                  />
-                  <label htmlFor="password">Password</label>
-                  <input 
-                      type="password"
-                      name="password"
-                      id="password"
-                      validate={[required, nonEmpty]}
-                      ref='password'
-                  />
+                  <div className="formClass">
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        validate={[required, nonEmpty]}
+                        ref='username'
+                        placeholder="username"
+                    />
+                  </div>
+                  <div className="formClass">
+                    <label htmlFor="password">Password</label>
+                    <input 
+                        type="password"
+                        name="password"
+                        id="password"
+                        validate={[required, nonEmpty]}
+                        ref='password'
+                        placeholder="password"
+                    />
+                  </div>
                   <button type="submit">
                       Log in
                   </button>
+
+                  <div className="linkContain">
+                    <Link to="/register">Register</Link>
+                  </div>
               </form>
             </div>
         );

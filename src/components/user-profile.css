@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,900|Lato');
+
+.topCont {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(https://cdnw.nickpic.host/xxd6vW.png);
+}
+
+.bottomCont {
+  z-index: 0;
+  width: 100vw;
+  height: 61.5vh;
+  /* background-color: #EBD2C3; */
+  background-color: #FEFAFA;
+  border-top: 2px solid #fff;
+  /* background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/dust_scratches.png); */
+  /* background-repeat: repeat; */
+  /* background-blend-mode: multiply; */
+}
+
+
+.userProfileImage img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-left: auto;
+  border: 1px solid #fff;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.9) 0px 0 10px;
+  -moz-box-shadow: rgba(0,0,0,0.9) 0 0 10px;
+  box-shadow: rgba(0,0,0,0.9) 0 0 10px;
+}
+
+.userProfilePosition {
+  display:block;
+  margin-right: 40%;
+  margin-left: 40%;
+  position: relative;
+  top: 22%;
+  width: 20%;
+}
+
+.user-name {
+  z-index: 0;
+  font-family: 'Josefin Sans';
+  font-weight: 600;
+  position: relative;
+  /* left: 30%; */
+  text-align: center;
+  /* width: 100%; */
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 20%;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.sectionHead {
+  width: 91%;
+  text-align: left;
+  padding: 3%;
+  color: #0F0E0E;
+  font-family: 'Josefin Sans';
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  padding-left: 6%;
+}
+
+.gameBox {
+  background-color: rgba(255, 255, 255, 0.8);
+  display:inline-block; 
+  padding: 2%;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-family: 'Lato';
+  text-transform: uppercase;
+  font-size: 9px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #0F0E0E;
+  border-radius: 5px;
+}
+
+.bottomCont ul {
+  list-style: none;
+}
+
+/* .curvedBox {
+  width: 100vw;
+  height: 30vh;
+  background-color: #000;
+} */
+
+.bioBox {
+  width: 90%;
+  margin: 5%;
+  min-height: 5%;
+  max-height: 20%;
+  background-color: #fff;
+  border-bottom: 1px solid #0F0E0E;
+  overflow: auto;
+}
+
+.bioText {
+  text-align: justify;
+  width: 90%;
+  padding: 5%;
+  color: #0F0E0E;
+  font-family: 'Lato';
+  font-size: 11px;
+}
+
+.listOGames {
+  text-align: center;
+  width: 90%;
+  padding: 5%;
+  overflow: auto;
+  max-height: 12%;
+}

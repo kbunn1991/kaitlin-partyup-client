@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import RegistrationForm from './registration-form';
+import HeaderBar from './header-bar';
 
 export class Register extends React.Component {
 
@@ -16,10 +17,9 @@ export class Register extends React.Component {
     
     return (
       <div className="registerPage">
-        <h2>Register for Party Up!</h2>
+        <HeaderBar />
         <RegistrationForm />
-        <Link to="/">Login</Link>
-      </div>
+        </div>
     )
   }
 }

@@ -1,5 +1,5 @@
 import './index.css';
-import {createStore, applyMiddleware, combineReducers } from 'redux';
+import {createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import userReducer from './reducers/user';
@@ -13,13 +13,14 @@ import { reducer as formReducer } from 'redux-form';
 
 // const store = createStore(userReducer, applyMiddleware(thunk));
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(combineReducers({
   userReduce: userReducer,
   groupReduce: groupReducer,
   auth: authReducer,
   protectedData: protectedDataReducer,
   form: formReducer
-}), applyMiddleware(thunk));
+}), composeEnhancers(applyMiddleware(thunk)));
 
 const authToken = loadAuthToken();
 if (authToken) {

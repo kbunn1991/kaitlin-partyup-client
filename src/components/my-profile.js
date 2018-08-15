@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchOneUser } from '../actions/users';
 import requiresLogin from './requires-login';
+import NavBar from './nav-bar';
 
 export class  MyProfile extends React.Component {
 
@@ -19,9 +20,12 @@ export class  MyProfile extends React.Component {
 
       return (
         <div>
-          {username}'s (my) Profile!!!!
-          <div><img src="http://placehold.it/500x200" /></div>
-          Games: <ul>{gameList}</ul>
+          <NavBar /><br />
+          <div>
+            {username}'s (my) Profile!!!!
+            <div><img src="http://placehold.it/500x200" /></div>
+            Games: <ul>{gameList}</ul>
+          </div>
         </div>
       )
     } else {

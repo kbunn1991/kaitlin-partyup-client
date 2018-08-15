@@ -84,12 +84,14 @@ export class MyGroup extends React.Component {
       <div>
         <h1> Make a Group </h1>
         <form onSubmit={(e) => {
-          this.props.dispatch(makeGroup(this.groupName.value, this.game.value, id, ));
+          this.props.dispatch(makeGroup(this.groupName.value, this.game.value, this.tags.value, id, ));
         }}>
           <label htmlFor="chooseGame">Game:</label>
           <input type="text" ref={input => this.game = input} />
           <label htmlFor="groupName">Group Name:</label>
           <input type="text" ref={input => this.groupName = input} />
+          <label htmlFor="groupName">Tags:</label>
+          <input type="text" ref={input => this.tags = input} />
           <button type="submit">Submit</button>
         </form>
         <h1>My Created Groups</h1>

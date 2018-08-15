@@ -3,8 +3,9 @@ import { Field, reduxForm, focus } from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import './registration-form.css';
 const passwordLength = length({min: 5, max: 72});
 const matchesPassword = matches('password');
 
@@ -25,34 +26,48 @@ export class RegistrationForm extends React.Component {
   render() {
     return (
       <div>
+        <div className="logBar"><div className="formWords">Register for Party Up!</div></div>
         <form
-          className="login-form"
+          className="registration-form"
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
-          <label htmlFor="username">Username</label>
-          < Field
-            component={Input}
-            type="text" 
-            name="username"
-            validate={[required, nonEmpty, isTrimmed]} />
-          <label htmlFor="password">Password</label>
-          <Field 
-            component={Input}
-            type="password"
-            name="password"
-            validate={[required, passwordLength, isTrimmed]} />
-          <label htmlFor="passwordConfirm">Confirm password</label>
-          <Field 
-            component={Input}
-            type="password"
-            name="passwordConfirm"
-            validate={[required, nonEmpty, matchesPassword]} />
+          <div className="formClass">
+            <label htmlFor="username">Username</label>
+            <Field
+              component={Input}
+              placeholder="username"
+              type="text" 
+              name="username"
+              placeholder="username"
+              validate={[required, nonEmpty, isTrimmed]} 
+              />
+          </div>
+          <div className="formClass">
+            <label htmlFor="password">Password</label>
+            <Field
+              component={Input}
+              type="password"
+              name="password"
+              validate={[required, passwordLength, isTrimmed]} 
+              placeholder="password" />
+          </div>
+          <div className="formClass">
+            <label htmlFor="passwordConfirm">Confirm password</label>
+            <Field 
+              component={Input}
+              type="password"
+              name="passwordConfirm"
+              validate={[required, nonEmpty, matchesPassword]}
+              placeholder="confirm password" />
+          </div>
           <button 
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
             Register
           </button>
+
+          <div className="linkContain"><Link to="/">Have an account? Login!</Link></div>
         </form>
       </div>
     )

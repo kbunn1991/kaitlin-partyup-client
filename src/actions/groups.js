@@ -19,7 +19,7 @@ export const makeGroupError = error => ({
   error
 });
 
-export const makeGroup = (groupName, game, id) => (dispatch, getState) => {
+export const makeGroup = (groupName, game, tags, id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(makeGroupRequest(id));
   return fetch(`${API_BASE_URL}/api/groups`, {
@@ -31,6 +31,7 @@ export const makeGroup = (groupName, game, id) => (dispatch, getState) => {
     body: JSON.stringify({
       groupName: groupName,
       game: game,
+      tags: tags.split(','),
       userId: id,
       groupType: 'created'
     })
@@ -100,10 +101,10 @@ export const searchGroupsError = error => ({
   error
 });
 
-export const filterGroups = game => (dispatch, getState) => {
+export const filterGroups = (groupName, game, tags) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  dispatch(searchGroupsRequest(game));
-  return fetch(`${API_BASE_URL}/api/groups/?searchTerm=${game}`, {
+  dispatch(searchGroupsRequest(groupName));
+  return fetch(`${API_BASE_URL}/api/groups/?searchTerm=${groupName}&game=${game}&tags=${tags}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`
@@ -343,3 +344,6 @@ export const fetchOneGroup = id => (dispatch, getState) => {
     dispatch(fetchOneGroupError(err))
   );
 }
+
+// (id, tags, searchTerm)
+// ?searhTerm=abc&&tags=y

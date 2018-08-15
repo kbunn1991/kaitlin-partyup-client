@@ -21,12 +21,15 @@ export class SearchGroups extends React.Component {
       <h1>Find A Group!</h1>
       <form onSubmit={(e) => {
         e.preventDefault();
-        console.log(this.input.value);
-        this.props.dispatch(filterGroups(this.input.value));
+        this.props.dispatch(filterGroups(this.groupName.value, this.game.value, this.tags.value));
         console.log(this.props.users);
       }}>
-        <label htmlFor="search-games">Game Title:</label>
-        <input type="text" name="games" ref={element => this.input = element} />
+        <label htmlFor="search-games">Group Name:</label>
+        <input type="text" name="games" ref={element => this.groupName = element} required />
+        <label htmlFor="search-games">Game:</label>
+        <input type="text" name="games" ref={element => this.game = element} />
+        <label htmlFor="search-games">Tag:</label>
+        <input type="text" name="games" ref={element => this.tags = element} />
         <button type="submit">Submit</button>
       </form>
 
@@ -41,7 +44,7 @@ const mapStateToProps = state => {
       username: state.auth.currentUser.username,
       protectedData: state.protectedData.data,
       groups: state.groupReduce.groups
-  };
+    };
 };
 
 export default requiresLogin()(connect(mapStateToProps)(SearchGroups));
