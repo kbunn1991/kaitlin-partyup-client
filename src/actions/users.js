@@ -191,7 +191,7 @@ export const editMyProfileError = error => ({
   error
 });
 
-export const editMyProfile = (id, profileImage, myGames, myTags) => (dispatch, getState) => {
+export const editMyProfile = (id, profileImage, bio, myGames, myTags) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(editMyProfileRequest(id));
   return fetch(`${API_BASE_URL}/api/users/${id}`, {
@@ -202,6 +202,7 @@ export const editMyProfile = (id, profileImage, myGames, myTags) => (dispatch, g
     },
     body: JSON.stringify({
       profileImage,
+      bio: bio,
       games: myGames.split(','),
       tags: myTags.split(',')
     })

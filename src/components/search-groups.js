@@ -2,6 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchGroups, filterGroups, joinGroup } from '../actions/groups';
+import NavBar from './nav-bar';
+import './search-groups.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGamepad } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faGamepad);
 
 export class SearchGroups extends React.Component {
 
@@ -12,28 +19,43 @@ export class SearchGroups extends React.Component {
   render() {
 
     let groupList = this.props.groups.map((group, i) => 
-      <li key={i}>{group.groupName} - <a href="#" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</a></li>
+      <li key={i}><a href={`/groups/${group._id}`}><div className="groupName">{group.groupName}</div></a> 
+      <div className="groupGame"><FontAwesomeIcon icon="gamepad" />&ensp;{group.game}</div>
+      <div className="groupInfo">{group.info}</div>
+      
+      <div className="joinGroup"><a href="#" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</a></div></li>
     );
     // <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>join group!</div>
 
     return (
     <div>
-      <h1>Find A Group!</h1>
-      <form onSubmit={(e) => {
+      <NavBar style={{zIndex:100}} />
+      <div className="findGroupsImage">
+
+        <div className="textBg">
+          <div className="findGroupsText">Find A Group</div>
+        </div>
+
+        <form className="findGroupForm"
+        onSubmit={(e) => {
         e.preventDefault();
         this.props.dispatch(filterGroups(this.groupName.value, this.game.value, this.tags.value));
         console.log(this.props.users);
       }}>
         <label htmlFor="search-games">Group Name:</label>
-        <input type="text" name="games" ref={element => this.groupName = element} required />
+        <input type="text" name="games" ref={element => this.groupName = element} placeholder="search by group name" />
         <label htmlFor="search-games">Game:</label>
-        <input type="text" name="games" ref={element => this.game = element} />
+        <input type="text" name="games" ref={element => this.game = element} placeholder="search by game title"/>
         <label htmlFor="search-games">Tag:</label>
-        <input type="text" name="games" ref={element => this.tags = element} />
+        <input type="text" name="games" ref={element => this.tags = element} placeholder="search by game tags"/>
         <button type="submit">Submit</button>
       </form>
+      </div>
+      
+      <div className="groupList">
+        <ul> {groupList} </ul>
+      </div>
 
-      <ul> {groupList} </ul>
     </div>
     ) 
   }

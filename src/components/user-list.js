@@ -32,6 +32,7 @@ export class Users extends React.Component {
         <div className="textBg">
           <div className="findPlayersText">Find Players</div>
         </div>
+      
 
          <div className="findForm">
           <form onChange={(e) => {
@@ -39,7 +40,7 @@ export class Users extends React.Component {
           this.props.dispatch(filterUsers(this.input.value));
           }}>
           <div className="position">
-            {/* <label htmlFor="search-games">Search Groups: </label> */}
+            <label htmlFor="search-games">Search Groups: </label>
             <input type="text" name="games" ref={element => this.input = element} placeholder="search users by game!"/>
           </div>
           </form>
@@ -50,9 +51,6 @@ export class Users extends React.Component {
         </div>
 
       </div>
-
-
-      {/* <NavBar2 /> */}
 
     </div>
     ) 

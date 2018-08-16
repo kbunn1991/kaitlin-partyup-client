@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Lato');
 
-.findPlayersImage {
+.findGroupsImage {
   margin-top: 0px;
   width: 100vw; 
   background-size: cover; 
@@ -14,7 +14,7 @@
 }
 
 .textBg {
-  background-image: url(https://images.unsplash.com/photo-1508240155128-3b7b40767aa1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=765113db149d05d2a9b69bdca93ef10f&auto=format&fit=crop&w=2532&q=80);
+  background-image: url(https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2e8843e67935b873f32154438cf9664&auto=format&fit=crop&w=2550&q=80);
   background-size: cover; 
   width: 100vw;
   height: 30vh;
@@ -22,7 +22,7 @@
   background-blend-mode: multiply;
 }
 
-.findPlayersText {
+.findGroupsText {
   text-align: center;
   color: #fff;
   font-family: 'Josefin Sans';
@@ -37,44 +37,60 @@
   background-size: cover;
 }
 
-.findForm {
+.findGroupForm {
   width: 100vw;
   display: block;
   position: absolute;
   margin-top: 5vh;
 }
 
-.findForm input {
-  z-index: 3;
+.findGroupForm input {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
   border: 1px solid #28231F;
-  padding: 7px;
   border-radius: 2px;
   background-color: #28231F;
   color: #fff;
   font-size: 9px;
   letter-spacing: 2px;
+  margin-top: 2px;
+  padding: 5px;
+
 }
 
-.findForm label {
+.findGroupForm button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 83.5%;
+  border: 1px solid #28231F;
+  border-radius: 2px;
+  background-color: #28231F;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 2px;
+  padding: 5px;
+}
+
+.findGroupForm label {
   display: none;
   color: #fff;
   font-family: 'Josefin Sans';
 }
 
-.userList {
+.groupList {
   position: absolute;
-  top: 43vh;
+  top: 54vh;
   width: 100%;
   padding: 0%;
-  max-height: 53vh;
+  max-height: 43vh;
   overflow: auto;
 }
 
-.userList ul {
+.groupList ul {
   margin-top: 0;
   overflow-y: hidden;
   list-style: none; 
@@ -85,7 +101,7 @@
   margin-right: auto;
 }
 
-.userList li {
+.groupList li {
   width: 80%;
   background-color: #fff;
   margin-bottom: 3%;
@@ -99,11 +115,11 @@
   margin-right: auto;
 }
 
-.userList li a:link {
+.groupList li a:link {
   color: rgba(0,0,0,0.9);
 }
 
-.userImage img {
+.groupList img {
   width: 50px;
   height: 50px;
   float: left;
@@ -115,7 +131,7 @@
   background-image: url('http://placehold.it/50x50');
 }
 
-.userInfo {
+.groupInfo {
   left: 54px;
   position: relative;
   max-width: 75%;
@@ -123,32 +139,54 @@
   overflow-y: hidden;
 }
 
-.userName {
-  font-family: 'Josefin Sans';
+.groupName {
+  font-family: 'Lato';
+  width: 98%;
+  text-align: center;
+  padding: 1px;
   font-size: 10px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
-  border-bottom: 1px solid rgba(0,0,0,0.1)
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.userGames {
+.groupGame {
   font-family: 'Lato';
-  display: block;
-  font-size:12px;
-  margin-left: 0%;
+  text-align: right;
+  font-size:9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 3px;
 }
 
-.userGames ul {
-  list-style: none;
-  margin-left: 0%;
-  padding: 2%;
-  line-height: 90%;
+.groupList li .groupInfo {
+  position: relative;
+  left: 0;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Lato';
+  font-size: 11px;
 }
-.userGames li {
-  padding: none;
-  border: none;
-  min-height: 0px;
-  padding: 2px;
+
+.joinGroup {
+  margin-top: 5px;
+  padding: 3px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #28231F;
+  border-radius: 5px;
+}
+
+.joinGroup a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Josefin Sans';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
 }

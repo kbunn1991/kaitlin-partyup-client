@@ -102,6 +102,7 @@ export const searchGroupsError = error => ({
 });
 
 export const filterGroups = (groupName, game, tags) => (dispatch, getState) => {
+  console.log(groupName, game, tags);
   const authToken = getState().auth.authToken;
   dispatch(searchGroupsRequest(groupName));
   return fetch(`${API_BASE_URL}/api/groups/?searchTerm=${groupName}&game=${game}&tags=${tags}`, {

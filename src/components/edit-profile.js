@@ -2,6 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchOneUser, editMyProfile, deleteGame, deleteTag} from '../actions/users';
 import requiresLogin from './requires-login';
+import './edit-profile.css';
+import NavBar from './nav-bar';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTrashAlt);
+
 
 
 export class  EditProfile extends React.Component {
@@ -9,6 +17,7 @@ export class  EditProfile extends React.Component {
     super(props);
 
     this.profileImage = null;
+    this.bio = null;
     this.myGames = null;
     this.myTags = null;
     this.gameId = null;
@@ -21,29 +30,56 @@ export class  EditProfile extends React.Component {
   }
 
   render() {
-  
+
     
     if (this.props.currentUser) { 
       let games = this.props.currentUser.games;
       let tags = this.props.currentUser.tags;
-      let gameList = games ? games.map((game,i) => <li key={i}>{game} - <a href="/editProfile" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}>Delete game</a></li>) : [];
-      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag} - <a href="/editProfile" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}>Delete tag</a></li>) : [];
+      let gameList = games ? games.map((game,i) => <li key={i}>{game}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}><FontAwesomeIcon icon="trash-alt" /></a></li>) : [];
+      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}><FontAwesomeIcon icon="trash-alt" /></a></li>) : [];
 
 
     return (
-      <form onSubmit={e => {
-        // e.preventDefault();
-        this.props.dispatch(editMyProfile(this.props.userId, this.profileImage.value, this.myGames.value, this.myTags.value))}}>
-        <label htmlFor="editGames">Profile Image:</label>
-        <input type="text" ref={input => this.profileImage = input} /><br />      
-        <label htmlFor="editGames">Add a Game:</label>
-        <input type="text" ref={input => this.myGames = input} /><br />
-        <ul>{gameList}</ul> 
-        <label htmlFor="editTags">Add a Tag:</label>
-        <input type="text" ref={input => this.myTags = input} /><br />
-        <ul>{tagList}</ul> 
-        <button type="submit">Submit</button>
-      </form>
+      <div className="editCont">
+        <NavBar />
+        <div className="editCont">
+
+          <div className="profileIconCon">
+            {/* <div className="profileIcon">
+              <img src={this.props.currentUser.profileImage}></img>
+            </div> */}
+            <div className="editText">editing profile</div>
+          </div>
+
+          <div className="editText"></div>
+
+          <div className="edit-form">
+            <form onSubmit={e => {
+              // e.preventDefault();
+              this.props.dispatch(editMyProfile(this.props.userId, this.profileImage.value, this.bio.value, this.myGames.value, this.myTags.value))}}>
+              <label htmlFor="editGames">Profile Image:</label>
+              <div className="inputWrapper">
+                <input type="text" ref={input => this.profileImage = input} placeholder="http//..." /><br />      
+              </div>
+              <label htmlFor="editGames">Bio:</label>
+              <div className="inputWrapper">
+                <input type="text" ref={input => this.bio = input} placeholder="short about me..." /><br />      
+              </div>
+              <label htmlFor="editGames">Add a Game:</label>
+              <div className="inputWrapper">
+                <input type="text" ref={input => this.myGames = input} placeholder="" /><br />
+                <ul>{gameList}</ul> 
+              </div>
+              <label htmlFor="editTags">Add a Tag:</label>
+              <div className="inputWrapper">
+                <input type="text" ref={input => this.myTags = input} placeholder="" /><br />
+                <ul>{tagList}</ul> 
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     )} else {
       return <div></div>
     }

@@ -5,11 +5,10 @@ import LandingPage from './landing-page';
 import {Register} from './registration-page';
 import MyGroup from './my-group';
 import GroupProfile from './group-profile';
-// import HeaderBar from './header-bar';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
 import UserProfile from './user-profile';
-import {Route, withRouter, Link} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import './app.css';
 
 import {refreshAuthToken} from '../actions/auth';

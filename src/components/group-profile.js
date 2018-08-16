@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchOneGroup } from '../actions/groups';
+import './group-profile.css';
 
 export class  GroupProfile extends React.Component {
 
@@ -10,8 +11,16 @@ export class  GroupProfile extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentGroup);
+    // console.log(this.props.currentGroup);
     if (this.props.currentGroup) {
+
+
+    console.log(this.props.currentGroup.game);
+
+    let bgImg = (this.props.currentGroup.game === "Bloodborne") ? "topContBloodborne" : (this.props.currentGroup.game === "Overwatch") ? "topContDva" : (this.props.currentGroup.game === "Bioshock") ? "topContBioshock" : (this.props.currentGroup.game === "Battlefront") ? "topContBattlefront" : ""
+
+    console.log(bgImg);
+
       let groupName = this.props.currentGroup.groupName;
       // let games = this.props.users.games.map(game => <li>-{game}</li>);
       let game = this.props.currentGroup.game;
@@ -20,8 +29,10 @@ export class  GroupProfile extends React.Component {
 
       return (
         <div>
+          <div className={bgImg}>
+          </div>
           {groupName}'s Profile!!!!
-          <div><img src="http://placehold.it/500x200" /></div>
+          <div><img src="http://placehold.it/100x100" /></div>
           Game: <ul>{game}</ul>
         </div>
       )

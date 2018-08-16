@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,900|Lato');
+
+.editCont {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #FEFAFA!important;
+  background-image: none;
+}
+
+/* .edit-form form {
+  z-index: -1;
+  width: 100vw;
+} */
+
+.edit-form label {
+  /* display: none; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 9px;
+  padding: 2%;
+  margin-top: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center; 
+  font-family: 'Josefin Sans';
+  font-weight: 600;
+}
+
+.edit-form {
+  position: absolute;
+  width: 100vw;
+  margin-top: -2%;
+  background-color: #FEFAFA!important;
+}
+
+.edit-form input {
+  /* display: inline-block;
+  width: 93%;
+  margin-left: auto;
+  margin-left: auto;
+  border: 1px solid #28231F;
+  padding: 7px;
+  border-radius: 2px;
+  background-color: #28231F;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-bottom: 2%; */
+  width: 96%;
+  text-align: center;
+  border: none;
+  background-color: #0F0E0E;
+  color: #fff;
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.inputWrapper {
+  width: 60%;
+  padding: 5%;
+  height: auto;
+  border-radius: 5px;
+  background-color: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #777;
+}
+
+.edit-form button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: #fff;
+  padding: 4%;
+  border: none;
+  border-bottom: 1px solid #28231F;
+  font-family: 'Josefin Sans';
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-form ul {
+  list-style: none; 
+  margin-left: 0%;
+  padding: 1%;
+  text-align: center;
+  max-height: 10vh;
+  min-height: 10vh;
+  overflow: auto;
+}
+
+.edit-form li {
+  padding: none;
+  margin: none;
+  font-size: 12px; 
+  display: inline-block;
+  text-align: center;
+  margin-right: 3px;
+  font-family: 'Lato';
+  background-color: #28231F;
+  color: #fff;
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 10px; 
+  margin-top: 2px;
+}
+
+.edit-form li a {
+  color: #fff;
+}
+
+.profileIconCon {
+  background-color: #0F0E0E;
+  width: 90vw;
+  height: 5vh;
+  padding: 5%
+}
+
+.editText {
+  color: #fff;
+  margin-top: 5%;
+  text-align: center;
+  font-family: 'Lato';
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.profileIcon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 23%;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  border: 2px solid #0F0E0E;
+}

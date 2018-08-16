@@ -1,0 +1,49 @@
+.topContBasic {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(http://placehold.it/500x200);
+}
+
+.topContBloodborne {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(https://www.ps4wallpapers.com/wp-content/uploads/2018/05/PS4Wallpapers.com_5b0967f41a62b_cropped-1920-1080-641193.jpg);
+}
+
+.topContDva {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a6db5a4cce9b_dva-overwatch-game-41.jpg);
+}
+
+.topContBioshock {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a63990e77b0f_HHQXqY4.jpg);
+}
+
+.topContBattlefront {
+  width: 100vw;
+  height: 35vh;
+  background-color: #777;
+  background-blend-mode: multiply;
+  background-size: cover;
+  /* background-repeat: repeat; */
+  background-image: url(https://www.ps4wallpapers.com/wp-content/uploads/2017/08/PS4Wallpapers.com_StarWarsBattlefrontII_3840x2160.jpg);
+}
