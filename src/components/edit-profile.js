@@ -51,8 +51,6 @@ export class  EditProfile extends React.Component {
             <div className="editText">editing profile</div>
           </div>
 
-          <div className="editText"></div>
-
           <div className="edit-form">
             <form onSubmit={e => {
               // e.preventDefault();
