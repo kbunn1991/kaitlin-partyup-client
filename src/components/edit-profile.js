@@ -43,8 +43,13 @@ export class  EditProfile extends React.Component {
 
           <div className="edit-form">
             <form onSubmit={e => {
-              // e.preventDefault();
-              this.props.dispatch(editMyProfile(this.props.userId, this.profileImage.value, this.bio.value, this.myGames.value, this.myTags.value))}}>
+              e.preventDefault();
+              this.props.dispatch(editMyProfile(this.props.userId, this.profileImage.value, this.bio.value, this.myGames.value, this.myTags.value))
+              .then(() => {
+                  this.props.history.push(`/users/${this.props.userId}`);
+                  console.log('redirect');
+                })
+              }}>
               <label htmlFor="editGames">Profile Image:</label>
               <div className="inputWrapper">
                 <input type="text" ref={input => this.profileImage = input} placeholder="http//..." /><br />      
