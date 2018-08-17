@@ -295,3 +295,39 @@ export const deleteTag = (id, tagId) => (dispatch, getState) => {
     dispatch(deleteTagError(err))
   );
 }
+
+export const ENDORSE_USER_REQUEST = 'ENDORSE_USER_REQUEST';
+export const endorseUserRequest = () => ({
+  type: ENDORSE_USER_REQUEST
+})
+
+export const ENDORSE_USER_SUCCESS = 'ENDORSE_USER_SUCCESS';
+export const endorseUserSuccess = () => ({
+  type: ENDORSE_USER_SUCCESS
+})
+
+export const ENDORSE_USER_ERROR = 'ENDORSE_USER_ERROR';
+export const endorseUserError = error => ({
+  type: ENDORSE_USER_ERROR,
+  error
+})
+
+export const endorseUser = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(endorseUserRequest(id));
+  return fetch(`${API_BASE_URL}/api/users/${id}/endorse`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => {
+    return res.json()
+  })
+  .then(res => 
+    dispatch(endorseUserSuccess(res)) 
+  )
+  .catch(err =>
+    dispatch(endorseUserError(err))
+  );
+};

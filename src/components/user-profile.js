@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchOneUser } from '../actions/users';
+import { fetchOneUser, endorseUser } from '../actions/users';
 import requiresLogin from './requires-login';
 import NavBar from './nav-bar';
 import './user-profile.css';
@@ -13,8 +13,7 @@ export class  UserProfile extends React.Component {
 
   endorse() {
     if (this.props.match.params.id !== this.props.userId) {
-      return <div className="endorsePlayer">Endorse this player!</div>
-      // onClick={this.props.endorseplayer(this.props.match.params.id)}
+      return <div className="endorsePlayer" onClick={() => this.props.dispatch(endorseUser(this.props.match.params.id))}>Endorse this player!</div>
     } else {
       return <div></div>
     }
@@ -26,6 +25,7 @@ export class  UserProfile extends React.Component {
     console.log(this.props);
     if (this.props.currentUser) {
       let username = this.props.currentUser.username;
+      let endorseLevel = this.props.currentUser.endorsement;
       let profileImage = this.props.currentUser.profileImage;
       // let games = this.props.users.games.map(game => <li>-{game}</li>);
       let games = this.props.currentUser.games;
@@ -41,7 +41,7 @@ export class  UserProfile extends React.Component {
               <div className="imgPos">
                 <div className="userProfileImage"><img src={profileImage} /></div>
               </div>
-              <div className="user-name">{username} </div> 
+              <div className="user-name">{username} ★ {endorseLevel} </div> 
               {this.endorse()}
           </div>
           <div className="bottomCont">
