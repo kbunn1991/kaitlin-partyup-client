@@ -3,8 +3,9 @@
 
 **MacDown** is a user-friendly group-finding app for multiplayer online games played on the PS4 network. Through this app, users can build a profile with what games they're playing and any specific tags they'd like to apply to themselves (i.e. competitive play, casual, lgbt+, etc) and search other users and groups in order to find friendly, fun teams to group up with.
 
-**Please Note**: This application is built to be a mobile app and therefore looks best in a mobile viewport (320 - 360). 
+**Please Note:** This application is built to be a mobile app and therefore looks best in a mobile viewport (320 - 360). 
 
+**Note Two:** Created Groups are not rendering in heroku at the moment due to some Heroku issues, but they are working locally and I expect them to be working on Heroku when it starts working properly again!
 
 ## Live Version via Heroku
 
