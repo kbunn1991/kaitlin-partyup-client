@@ -4,11 +4,6 @@ import requiresLogin from './requires-login';
 import { fetchGroups, filterGroups, joinGroup } from '../actions/groups';
 import NavBar from './nav-bar';
 import './search-groups.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGamepad } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faGamepad);
 
 export class SearchGroups extends React.Component {
 
@@ -20,7 +15,7 @@ export class SearchGroups extends React.Component {
 
     let groupList = this.props.groups.map((group, i) => 
       <li key={i}><a href={`/groups/${group._id}`}><div className="groupName">{group.groupName}</div></a> 
-      <div className="groupGame"><FontAwesomeIcon icon="gamepad" />&ensp;{group.game}</div>
+      <div className="groupGame">&ensp;{group.game}</div>
       <div className="groupInfo">{group.info}</div>
       
       <div className="joinGroup"><a href="#" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</a></div></li>

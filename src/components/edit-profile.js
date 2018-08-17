@@ -4,13 +4,6 @@ import {fetchOneUser, editMyProfile, deleteGame, deleteTag} from '../actions/use
 import requiresLogin from './requires-login';
 import './edit-profile.css';
 import NavBar from './nav-bar';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faTrashAlt);
-
-
 
 export class  EditProfile extends React.Component {
   constructor(props) {
@@ -35,8 +28,8 @@ export class  EditProfile extends React.Component {
     if (this.props.currentUser) { 
       let games = this.props.currentUser.games;
       let tags = this.props.currentUser.tags;
-      let gameList = games ? games.map((game,i) => <li key={i}>{game}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}><FontAwesomeIcon icon="trash-alt" /></a></li>) : [];
-      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}><FontAwesomeIcon icon="trash-alt" /></a></li>) : [];
+      let gameList = games ? games.map((game,i) => <li key={i}>{game}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}></a></li>) : []; 
+      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}></a></li>) : [];
 
 
     return (
@@ -45,9 +38,6 @@ export class  EditProfile extends React.Component {
         <div className="editCont">
 
           <div className="profileIconCon">
-            {/* <div className="profileIcon">
-              <img src={this.props.currentUser.profileImage}></img>
-            </div> */}
             <div className="editText">editing profile</div>
           </div>
 

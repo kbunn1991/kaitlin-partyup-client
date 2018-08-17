@@ -8,7 +8,7 @@ import GroupProfile from './group-profile';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
 import UserProfile from './user-profile';
-import {Route, withRouter} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './app.css';
 
 import {refreshAuthToken} from '../actions/auth';

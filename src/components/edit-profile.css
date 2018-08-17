@@ -15,6 +15,7 @@
 
 .edit-form label {
   /* display: none; */
+  z-index: 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -35,19 +36,7 @@
   background-color: #FEFAFA!important;
 }
 
-.edit-form input {
-  /* display: inline-block;
-  width: 93%;
-  margin-left: auto;
-  margin-left: auto;
-  border: 1px solid #28231F;
-  padding: 7px;
-  border-radius: 2px;
-  background-color: #28231F;
-  color: #fff;
-  font-size: 9px;
-  letter-spacing: 2px;
-  margin-bottom: 2%; */
+.edit-form input { 
   width: 96%;
   text-align: center;
   border: none;

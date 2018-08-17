@@ -52,7 +52,7 @@ export class MyGroup extends React.Component {
     
     return (
       <div className="myGroups">
-        <NavBar style={{zIndex: 2}}/><br />
+        <NavBar /><br />
         <div className="groupCon">
           <div className="groupText">Make a Group</div>
         </div>
