@@ -11,6 +11,15 @@ export class  UserProfile extends React.Component {
     this.props.dispatch(fetchOneUser(this.props.match.params.id));  
   }
 
+  endorse() {
+    if (this.props.match.params.id !== this.props.userId) {
+      return <div className="endorsePlayer">Endorse this player!</div>
+      // onClick={this.props.endorseplayer(this.props.match.params.id)}
+    } else {
+      return <div></div>
+    }
+  }
+
   render() {
 
   
@@ -29,10 +38,11 @@ export class  UserProfile extends React.Component {
         <div className="userProfileCont">
           <NavBar style={{zIndex: 2}}/><br />
           <div className="topCont">
-            <div className="userProfilePosition">
-              <div className="userProfileImage"><img src={profileImage} /></div>
+              <div className="imgPos">
+                <div className="userProfileImage"><img src={profileImage} /></div>
+              </div>
               <div className="user-name">{username} </div> 
-            </div>
+              {this.endorse()}
           </div>
           <div className="bottomCont">
 

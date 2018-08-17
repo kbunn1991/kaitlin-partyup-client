@@ -8,6 +8,7 @@ import GroupProfile from './group-profile';
 import EditProfile from './edit-profile';
 import SearchGroups from './search-groups';
 import UserProfile from './user-profile';
+import UserManual from './user-manual';
 import { Route, withRouter } from 'react-router-dom';
 import './app.css';
 
@@ -59,6 +60,7 @@ export class App extends React.Component {
                     <div><a href="/searchGroups">search groups</a></div> */}
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/register" component={Register} />
+                    <Route exact path="/userManual" component={UserManual} />
                     <Route exact path="/findPlayers" component={Users} />
                     <Route exact path="/users/:id" component={UserProfile} />
                     <Route exact path="/myGroup" component={MyGroup} />

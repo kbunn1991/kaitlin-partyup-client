@@ -18,7 +18,7 @@ export class RegistrationForm extends React.Component {
       .dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)))
       .then(() => {
-        this.props.history.push('/findPlayers');
+        this.props.history.push('/userManual');
         console.log('redirect');
       });
   }
