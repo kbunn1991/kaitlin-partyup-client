@@ -43,10 +43,9 @@ const storeAuthInfo = (authToken, dispatch) => {
 };
 
 export const login = (username, password) => dispatch => {
-    console.log(`username is ${username}, password is ${password}`)
     dispatch(authRequest());
     return (
-        fetch(`${API_BASE_URL}/api/login`, {
+        fetch(`https://partyup-client.herokuapp.com/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
