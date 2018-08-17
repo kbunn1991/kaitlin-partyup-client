@@ -28,8 +28,8 @@ export class  EditProfile extends React.Component {
     if (this.props.currentUser) { 
       let games = this.props.currentUser.games;
       let tags = this.props.currentUser.tags;
-      let gameList = games ? games.map((game,i) => <li key={i}>{game}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}></a></li>) : []; 
-      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag}  <a href="/editProfile" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}></a></li>) : [];
+      let gameList = games ? games.map((game,i) => <li key={i}>{game}  <a href="/editProfile" aria-label="Delete Game" onClick={() => this.props.dispatch(deleteGame(this.props.userId, game))}>✘</a></li>) : []; 
+      let tagList = tags ? tags.map((tag,i) => <li key={i}>{tag}  <a href="/editProfile" aria-label="Delete Tag" onClick={() => this.props.dispatch(deleteTag(this.props.userId, tag))}>✘</a></li>) : [];
 
 
     return (
@@ -50,22 +50,22 @@ export class  EditProfile extends React.Component {
                   console.log('redirect');
                 })
               }}>
-              <label htmlFor="editGames">Profile Image:</label>
+              <label htmlFor="editImage">Profile Image:</label>
               <div className="inputWrapper">
-                <input type="text" ref={input => this.profileImage = input} placeholder="http//..." /><br />      
+                <input type="text" aria-label="Edit Profile Image" id="editImage" ref={input => this.profileImage = input} placeholder="http//..." /><br />      
               </div>
-              <label htmlFor="editGames">Bio:</label>
+              <label htmlFor="editBio">Bio:</label>
               <div className="inputWrapper">
-                <input type="text" ref={input => this.bio = input} placeholder="short about me..." /><br />      
+                <input type="text" aria-label="Edit Biography" id="editBio" ref={input => this.bio = input} placeholder="short about me..." /><br />      
               </div>
-              <label htmlFor="editGames">Add a Game:</label>
+              <label htmlFor="addGame">Add a Game:</label>
               <div className="inputWrapper">
-                <input type="text" ref={input => this.myGames = input} placeholder="" /><br />
+                <input type="text" aria-label="Add a Game" ref={input => this.myGames = input} placeholder="" id="addGame" /><br />
                 <ul>{gameList}</ul> 
               </div>
-              <label htmlFor="editTags">Add a Tag:</label>
+              <label htmlFor="addTag">Add a Tag:</label>
               <div className="inputWrapper">
-                <input type="text" ref={input => this.myTags = input} placeholder="" /><br />
+                <input type="text" aria-label="Add a Tag" ref={input => this.myTags = input} placeholder="" id="addTag" /><br />
                 <ul>{tagList}</ul> 
               </div>
               <button type="submit">Submit</button>

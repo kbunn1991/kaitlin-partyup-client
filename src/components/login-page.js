@@ -20,7 +20,7 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <div>
+            <div className="loginPage">
               <div className="logBar"><div className="logWords">Please <i>log in</i> to use our features</div></div>
                 <form
                   className="login-form"

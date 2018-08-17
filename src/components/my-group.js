@@ -61,15 +61,15 @@ export class MyGroup extends React.Component {
         }}>
           <div className="formSection">
             <label htmlFor="chooseGame">Game:</label>
-            <input type="text" ref={input => this.game = input} />
+            <input type="text" ref={input => this.game = input} placeholder="game title"/>
           </div>
           <div className="formSection">
             <label htmlFor="groupName">Group Name:</label>
-            <input type="text" ref={input => this.groupName = input} />
+            <input type="text" ref={input => this.groupName = input} placeholder="group name"/>
           </div>
           <div className="formSection">
             <label htmlFor="groupName">Tags:</label>
-            <input type="text" ref={input => this.tags = input} />
+            <input type="text" ref={input => this.tags = input} placeholder="group tags"/>
           </div>
           <button type="submit">Submit</button>
         </form>
