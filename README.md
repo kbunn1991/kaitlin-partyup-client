@@ -61,10 +61,10 @@ Group Profile Page
 **Target Audience:** The target audience for 'Party Up!' are the vast, diverse community of PS4 gamers - especially those interested in online multiplayer games that would like to find a good group.
 **MVP Features:** CRUD actions - create a user, edit (PUT) a user, create (POST) a new group, search (GET) for users or groups, endorse (PUT) other players, which ups their endorsement level by 1, and delete a created group. 
 
-##Tech Stack
+## Tech Stack
 
 'Party Up!' was created with MongoDB as the database, Express and Node on the backend with JWT/bcrypt for authentication, and React/Redux on the frontend. 
 
-##Future Plans
+## Future Plans
 
 I plan on connecting this app to the Discord API so that users can contact one another via Discord. Additionally, I plan to use that same API to create a chatroom for each group; if not through a Discord chat room, then through a chatroom specifically made for this app using mainly React and Socket.io.
