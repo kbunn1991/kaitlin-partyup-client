@@ -162,3 +162,41 @@
 .endorsePlayer::after {
   content: ' '
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .imgPos {
+    padding-top: 10%;
+  }
+  .userProfileImage img {
+    width: 100px;
+    height: 100px;
+  }
+  .user-name {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 1%;
+  }
+  .gameBox {
+    max-width: 80%;
+  }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .imgPos {
+    padding-top: 5%;
+  }
+  .userProfileImage img {
+    width: 120px;
+    height: 120px;
+  }
+  .user-name {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 1%;
+  }
+  .gameBox {
+    max-width: 80%;
+  }
+} 
