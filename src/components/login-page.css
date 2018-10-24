@@ -3,7 +3,7 @@
 @media screen and (min-width: 768px) { 
   .loginPage {
     background-color: #FEFAFA;
-    height: 100vh;
+    height: 50vh;
     overflow: auto;
   }
 }
@@ -33,6 +33,14 @@
   font-size: 9px;
   letter-spacing: 2px;
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .login-form input {
+    width: 60%;
+    padding: 15px;
+  }
+} 
 
 @media screen and (max-width: 768px) {
   .login-form input {
@@ -82,6 +90,24 @@
   font-family: 'Josefin Sans'
 }
 
+@media only screen and (min-width: 600px) {
+  .login-form button {
+    margin-top: 1%;
+    width: 20%;
+    padding: 1%;
+    display: inline-flex;
+    text-align: center!important;
+    margin: 1%;
+  }
+  .login-form .linkContain {
+    width: 20%;
+    display: inline-flex;
+    padding: 1%;
+    margin: 1%;
+    text-align: center!important;
+  }
+} 
+
 @media screen and (max-width: 768px) {
   .login-form button {
     width: 74%;
@@ -94,6 +120,7 @@
   font-family: 'Josefin Sans';
   text-decoration: none;
   font-size: 12px;
+  text-align: center!important;
 }
 
 @media screen and (max-width: 375) {
