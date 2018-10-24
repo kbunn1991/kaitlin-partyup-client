@@ -33,7 +33,7 @@ export class  EditProfile extends React.Component {
 
 
     return (
-      <div className="editCont">
+      <main className="editCont">
         <NavBar />
         <div className="editCont">
 
@@ -72,7 +72,7 @@ export class  EditProfile extends React.Component {
             </form>
           </div>
         </div>
-      </div>
+      </main>
     )} else {
       return <div></div>
     }

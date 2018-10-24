@@ -40,6 +40,7 @@ export class RegistrationForm extends React.Component {
               type="text" 
               name="username"
               placeholder="username"
+              aria-label="username"
               validate={[required, nonEmpty, isTrimmed]} 
               />
           </div>
@@ -49,6 +50,7 @@ export class RegistrationForm extends React.Component {
               component={Input}
               type="password"
               name="password"
+              aria-label="password"
               validate={[required, passwordLength, isTrimmed]} 
               placeholder="password" />
           </div>

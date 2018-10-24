@@ -37,12 +37,12 @@ export class SearchGroups extends React.Component {
         this.props.dispatch(filterGroups(this.groupName.value, this.game.value, this.tags.value));
         console.log(this.props.users);
       }}>
-        <label htmlFor="search-games">Group Name:</label>
-        <input type="text" name="games" ref={element => this.groupName = element} placeholder="search by group name" />
-        <label htmlFor="search-games">Game:</label>
-        <input type="text" name="games" ref={element => this.game = element} placeholder="search by game title"/>
-        <label htmlFor="search-games">Tag:</label>
-        <input type="text" name="games" ref={element => this.tags = element} placeholder="search by game tags"/>
+        <label htmlFor="search-games-group">Group Name:</label>
+        <input type="text" id="search-games-group" aria-label="Search games by group" name="games" ref={element => this.groupName = element} placeholder="search by group name" />
+        <label htmlFor="search-games-title">Game:</label>
+        <input type="text" id="search-games-title" aria-label="Search games by title" name="games" ref={element => this.game = element} placeholder="search by game title"/>
+        <label htmlFor="search-games-tag">Tag:</label>
+        <input type="text" id="search-games-tag" aria-label="Search games by tags" name="games" ref={element => this.tags = element} placeholder="search by game tags"/>
         <button type="submit">Submit</button>
       </form>
       </div>
