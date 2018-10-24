@@ -6,15 +6,18 @@
   overflow: hidden;
   background-color: #FEFAFA!important;
   background-image: none;
+  z-index: 0;
 }
 
-/* .edit-form form {
-  z-index: -1;
+.edit-form {
+  position: absolute;
   width: 100vw;
-} */
+  margin-top: -2%;
+  z-index: 0;
+  background-color: #FEFAFA!important;
+}
 
 .edit-form label {
-  /* display: none; */
   z-index: 0;
   display: block;
   margin-left: auto;
@@ -27,13 +30,6 @@
   text-align: center; 
   font-family: 'Josefin Sans';
   font-weight: 600;
-}
-
-.edit-form {
-  position: absolute;
-  width: 100vw;
-  margin-top: -2%;
-  background-color: #FEFAFA!important;
 }
 
 .edit-form input { 
@@ -131,3 +127,37 @@
   object-fit: cover;
   border: 2px solid #0F0E0E;
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .edit-form label {
+    font-size: 11px;
+    padding: 2%;
+  }
+  .inputWrapper {
+    width: 70%;
+    padding: 3%;
+  }
+  .edit-form button {
+    padding: 3%;
+    width: 76%;
+    font-size: 14px;
+  }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .edit-form label {
+    font-size: 12px;
+    padding: 2%;
+  }
+  .inputWrapper {
+    width: 70%;
+    padding: 3%;
+  }
+  .edit-form button {
+    padding: 3%;
+    width: 76%;
+    font-size: 14px;
+  }
+} 
