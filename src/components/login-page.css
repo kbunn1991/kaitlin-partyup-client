@@ -94,7 +94,7 @@
   .login-form button {
     margin-top: 1%;
     width: 20%;
-    padding: 1%;
+    padding: 2%;
     display: inline-flex;
     text-align: center!important;
     margin: 1%;
@@ -102,7 +102,7 @@
   .login-form .linkContain {
     width: 20%;
     display: inline-flex;
-    padding: 1%;
+    padding: 2%;
     margin: 1%;
     text-align: center!important;
   }
