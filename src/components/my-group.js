@@ -51,7 +51,7 @@ export class MyGroup extends React.Component {
     console.log(this.props.groups);
     
     return (
-      <div className="myGroups">
+      <section className="myGroups">
         <NavBar /><br />
         <div className="groupCon">
           <div className="groupText">Make a Group</div>
@@ -80,7 +80,7 @@ export class MyGroup extends React.Component {
 
         <div className="groupHeader">My Joined Groups</div>
         <ul>{myGroups}</ul>
-      </div>
+      </section>
     )
   }
 }

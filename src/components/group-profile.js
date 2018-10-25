@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import { fetchOneGroup } from '../actions/groups';
 import './group-profile.css';
 import NavBar from './nav-bar';
-import { fetchOneUser } from '../actions/users';
 
 export class  GroupProfile extends React.Component {
 
@@ -17,7 +16,7 @@ export class  GroupProfile extends React.Component {
     if (this.props.currentGroup !== null) {
       if (this.props.currentGroup.users !== undefined) {
         return this.props.currentGroup.users.map((user, i) => (
-          <li key={i}> <div className="userImage"><img src={user.profileImage}></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a></div>
+          <li key={i}> <div className="userImage"><img src={user.profileImage} alt="user's profile image"></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a></div>
           
           <div className="biotext">{user.bio}</div> </li>
         ))
@@ -42,7 +41,7 @@ export class  GroupProfile extends React.Component {
       // let gameList = games ? games.map((game,i) => <li key={i}>{game}</li>) : [];
 
       return (
-        <div className="groupProf">
+        <section className="groupProf">
           <NavBar />
           <div className={bgImg}>
             <div className="groupName">{groupName}</div>
@@ -50,7 +49,7 @@ export class  GroupProfile extends React.Component {
           </div>
           <ul>{this.userGroup()}</ul>
           
-        </div>
+        </section>
       )
     } else {
       return <div></div>

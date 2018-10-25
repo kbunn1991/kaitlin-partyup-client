@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, focus} from 'redux-form';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './login-page.css';
 
 export class LoginForm extends React.Component {
@@ -20,7 +20,7 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <div className="loginPage">
+            <section className="loginPage">
               <div className="logBar"><div className="logWords">Please <i>log in</i> to use our features</div></div>
                 <form
                   className="login-form"
@@ -60,7 +60,7 @@ export class LoginForm extends React.Component {
                     <Link to="/register">Register</Link>
                   </div>
               </form>
-            </div>
+            </section>
         );
     }
 }

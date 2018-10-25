@@ -18,7 +18,7 @@ export const registerUser = user => dispatch => {
       .then(() => dispatch(authSuccess()))
       .then(res => res.json())
       .catch(err => {
-          const {reason, message, location} = err;
+          const {reason} = err;
           if (reason === 'ValidationError') {
               // Convert ValidationErrors into SubmissionErrors for Redux Form
               return Promise.reject(

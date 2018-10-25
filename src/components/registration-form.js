@@ -25,7 +25,7 @@ export class RegistrationForm extends React.Component {
   
   render() {
     return (
-      <div>
+      <section>
         <div className="logBar"><div className="formWords">Register for Party Up!</div></div>
         <form
           className="registration-form"
@@ -36,7 +36,6 @@ export class RegistrationForm extends React.Component {
             <label htmlFor="username">Username</label>
             <Field
               component={Input}
-              placeholder="username"
               type="text" 
               name="username"
               placeholder="username"
@@ -71,7 +70,7 @@ export class RegistrationForm extends React.Component {
 
           <div className="linkContain"><Link to="/">Have an account? Login!</Link></div>
         </form>
-      </div>
+      </section>
     )
   }
 }

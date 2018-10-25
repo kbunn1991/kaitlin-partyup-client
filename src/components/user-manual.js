@@ -4,7 +4,7 @@ import './user-manual.css';
 export default class UserManual extends React.Component {
   render() {
     return (
-      <div className="howToUse">
+      <section className="howToUse">
         <h1>How To Use</h1>
 
         <div className="infoComponent">
@@ -27,7 +27,7 @@ export default class UserManual extends React.Component {
           <i>Okay I got it, now take me to the app!</i>
         </div></a>
 
-      </div>
+      </section>
     )
   }
 }

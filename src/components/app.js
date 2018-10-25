@@ -47,8 +47,7 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div className="app">
-                  <div>
+            <main className="app">
                   {/* <HeaderBar /> */}
                     {/* <div><a href={`/users/myProfile/${this.props.userId}`}>My Profile</a></div>
 
@@ -68,8 +67,7 @@ export class App extends React.Component {
                     <Route exact path="/editProfile" component={EditProfile} />
                     <Route exact path="/searchGroups" component={SearchGroups} />
                     <Route exact path="/users/myProfile/:id" component={MyProfile} />
-                  </div>
-            </div>
+            </main>
         );
     }
 }

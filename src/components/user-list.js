@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchUsers, filterUsers } from '../actions/users';
 import NavBar from './nav-bar';
-import NavBar2 from './nav2';
 import './user-list.css';
 
 export class Users extends React.Component {
@@ -15,11 +14,11 @@ export class Users extends React.Component {
   render() {
     // <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>add to group!</div>
     let userList = this.props.users.map((user, i) => 
-      <li key={i}><div className="userImage"><img src={user.profileImage}></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a> <div className="userGames"><ul>{user.games.map((game,i) => <li key={i}><span>{game}&nbsp;</span></li>)}</ul></div> </div></li>
+      <li key={i}><div className="userImage"><img src={user.profileImage} alt="user's profile image"></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a> <div className="userGames"><ul>{user.games.map((game,i) => <li key={i}><span>{game}&nbsp;</span></li>)}</ul></div> </div></li>
     );
 
     return (
-    <div>
+    <section>
       <NavBar style={{zIndex:100}} />
 
       <div className="findPlayersImage">
@@ -47,7 +46,7 @@ export class Users extends React.Component {
 
       </div>
 
-    </div>
+    </section>
     ) 
   }
 }

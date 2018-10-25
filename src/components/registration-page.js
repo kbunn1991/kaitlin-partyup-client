@@ -16,10 +16,10 @@ export class Register extends React.Component {
     }
     
     return (
-      <div className="registerPage">
+      <section className="registerPage">
         <HeaderBar />
         <RegistrationForm />
-        </div>
+        </section>
     )
   }
 }

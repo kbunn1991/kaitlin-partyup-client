@@ -26,7 +26,7 @@ export class NavBar extends React.Component {
           );
       }
       return (
-          <div className="nav-bar">
+          <nav className="nav-bar">
               {logOutButton}
             <div className="hamburger-button">
                 <label htmlFor="toggle">&#9776;</label>
@@ -39,7 +39,7 @@ export class NavBar extends React.Component {
                     <Link to="/findPlayers">Search Users</Link>
                 </div>
             </div>
-          </div>
+          </nav>
       );
   }
 }

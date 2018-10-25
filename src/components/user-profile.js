@@ -35,11 +35,11 @@ export class  UserProfile extends React.Component {
       let tagList = tags ? tags.map((tag,i) => <div key={i} className="gameBox">{tag}</div>) : [];
 
       return (
-        <div className="userProfileCont">
+        <section className="userProfileCont">
           <NavBar style={{zIndex: 2}}/><br />
           <div className="topCont">
               <div className="imgPos">
-                <div className="userProfileImage"><img src={profileImage} /></div>
+                <div className="userProfileImage"><img src={profileImage} alt="user's profile" /></div>
               </div>
               <div className="user-name">{username} ★ {endorseLevel} </div> 
               {this.endorse()}
@@ -70,7 +70,7 @@ export class  UserProfile extends React.Component {
           {/* <div className="userImage"><img src={profileImage} /></div><br />
           <div className="user-name">{username}</div>
           Games: <ul>{gameList}</ul> */}
-        </div>
+        </section>
       )
     } else {
       return <div></div>

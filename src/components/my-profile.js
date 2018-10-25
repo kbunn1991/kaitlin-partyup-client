@@ -19,14 +19,14 @@ export class  MyProfile extends React.Component {
       let gameList = games ? games.map((game,i) => <li key={i}>{game}</li>) : [];
 
       return (
-        <div>
+        <section>
           <NavBar /><br />
           <div>
             {username}'s (my) Profile!!!!
-            <div><img src="http://placehold.it/500x200" /></div>
+            <div><img alt="user's profile image" src="http://placehold.it/500x200" /></div>
             Games: <ul>{gameList}</ul>
           </div>
-        </div>
+        </section>
       )
     } else {
       return <div></div>
