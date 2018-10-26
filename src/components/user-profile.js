@@ -39,7 +39,7 @@ export class  UserProfile extends React.Component {
           <NavBar style={{zIndex: 2}}/><br />
           <div className="topCont">
               <div className="imgPos">
-                <div className="userProfileImage"><img src={profileImage} alt="user's profile" /></div>
+                <div className="userProfileImage"><img src={profileImage} /></div>
               </div>
               <div className="user-name">{username} ★ {endorseLevel} </div> 
               {this.endorse()}

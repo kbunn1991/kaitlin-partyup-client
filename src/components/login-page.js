@@ -21,7 +21,7 @@ export class LoginForm extends React.Component {
         }
         return (
             <section className="loginPage">
-              <div className="logBar"><div className="logWords">A <i>personalized</i> teamfinding app for PS4</div></div>
+              <div className="logBar"><div className="logWords">A <i>personalized</i> teamfinding app for PS4.<br /> Meet gamers, get connected.</div></div>
                 <form
                   className="login-form"
                   onSubmit={this.props.handleSubmit(values =>

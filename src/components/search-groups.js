@@ -18,7 +18,7 @@ export class SearchGroups extends React.Component {
       <div className="groupGame">&ensp;{group.game}</div>
       <div className="groupInfo">{group.info}</div>
       
-      <div className="joinGroup" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</div></li>
+      <div className="joinGroup"> <a href="#" onClick={() => this.props.dispatch(joinGroup(group._id))}>Join this group!</a></div></li>
     );
     // <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>join group!</div>
 

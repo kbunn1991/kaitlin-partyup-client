@@ -14,7 +14,7 @@ export class Users extends React.Component {
   render() {
     // <div onClick={() => { this.props.dispatch(addToGroup(user._id)); console.log(user._id)}}>add to group!</div>
     let userList = this.props.users.map((user, i) => 
-      <li key={i}><div className="userImage"><img src={user.profileImage} alt="user's profile image"></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a> <div className="userGames"><ul>{user.games.map((game,i) => <li key={i}><span>{game}&nbsp;</span></li>)}</ul></div> </div></li>
+      <li key={i}><div className="userImage"><img src={user.profileImage}></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a> <div className="userGames"><ul>{user.games.map((game,i) => <li key={i}><span>{game}&nbsp;</span></li>)}</ul></div> </div></li>
     );
 
     return (

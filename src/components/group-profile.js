@@ -16,7 +16,7 @@ export class  GroupProfile extends React.Component {
     if (this.props.currentGroup !== null) {
       if (this.props.currentGroup.users !== undefined) {
         return this.props.currentGroup.users.map((user, i) => (
-          <li key={i}> <div className="userImage"><img src={user.profileImage} alt="user's profile image"></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a></div>
+          <li key={i}> <div className="userImage"><img src={user.profileImage}></img></div> <div className="userInfo"><a href={`/users/${user._id}`} className="userName">{user.username}</a></div>
           
           <div className="biotext">{user.bio}</div> </li>
         ))
